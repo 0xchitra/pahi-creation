@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pahi Creation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:       '#FFF8F2',
+            rose:        '#E8A4A4',
+            'rose-dark': '#D4797A',
+            sage:        '#A8C5A0',
+            lavender:    '#C9B8D8',
+            peach:       '#F5C5A3',
+            blush:       '#FAE8E8',
+            bark:        '#3D2C2C',
+            'bark-light':'#6B4E4E',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body:    ['Nunito', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { font-family: 'Nunito', sans-serif; background-color: #FFF8F2; color: #3D2C2C; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+    /* Squiggle accent under section headings */
+    .squiggle::after {
+      content: '';
+      display: block;
+      width: 72px;
+      height: 3px;
+      background: linear-gradient(90deg, #E8A4A4, #C9B8D8);
+      border-radius: 99px;
+      margin: 8px auto 0;
+    }
+
+    /* Card hover lift */
+    .product-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(200,120,120,0.22); }
+
+    /* Fade-up entrance for cards */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.5s ease both; }
+    .fade-up:nth-child(1){animation-delay:.05s}
+    .fade-up:nth-child(2){animation-delay:.12s}
+    .fade-up:nth-child(3){animation-delay:.19s}
+    .fade-up:nth-child(4){animation-delay:.26s}
+    .fade-up:nth-child(5){animation-delay:.33s}
+    .fade-up:nth-child(6){animation-delay:.40s}
+
+    /* Shimmer on placeholder images */
+    .img-placeholder { position: relative; overflow: hidden; }
+    .img-placeholder::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
+      animation: shimmer 2.2s infinite;
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Dot pattern background for hero */
+    .dot-bg {
+      background-image: radial-gradient(circle, #E8A4A420 1.5px, transparent 1.5px),
+                        radial-gradient(circle, #C9B8D820 1.5px, transparent 1.5px);
+      background-size: 28px 28px, 56px 56px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* WhatsApp button press */
+    .wa-btn:active { transform: scale(0.96); }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-pink-100">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-pink-50 border border-rose/30 flex items-center justify-center flex-shrink-0 shadow-sm">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3C9 3 6.5 5.8 6.5 9c0 4.5 5.5 11 5.5 11s5.5-6.5 5.5-11C17.5 5.8 15 3 12 3z" fill="#E8A4A4"/>
+            <circle cx="12" cy="9" r="2.8" fill="#fff" fill-opacity="0.55"/>
+            <circle cx="12" cy="9" r="1.4" fill="#D4797A"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-display font-bold text-base leading-tight text-bark">Pahi Creation</h1>
+          <p class="text-[10px] text-bark-light font-semibold tracking-[0.18em] uppercase">Handmade With Care</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/916001928325" target="_blank" rel="noopener"
+         class="flex items-center gap-1.5 bg-[#25D366] text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-sm active:scale-95 transition-transform">
+        <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16c0 2.333.627 4.52 1.72 6.413L2.667 29.333l7.16-1.693A13.24 13.24 0 0 0 16 29.333c7.364 0 13.333-5.969 13.333-13.333C29.333 8.636 23.364 2.667 16 2.667zm0 24c-2.04 0-3.953-.533-5.613-1.467l-.4-.24-4.253 1.12 1.133-4.147-.267-.413A10.626 10.626 0 0 1 5.333 16C5.333 10.12 10.12 5.333 16 5.333S26.667 10.12 26.667 16 21.88 26.667 16 26.667zm5.733-7.987c-.32-.16-1.88-.933-2.173-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-.987 1.253-.16.213-.347.24-.667.08-.32-.16-1.36-.5-2.587-1.6-.96-.853-1.6-1.907-1.787-2.227-.187-.32 0-.493.147-.64.147-.147.32-.347.48-.52.16-.173.213-.32.32-.533.107-.213.053-.413-.027-.56-.08-.147-.72-1.733-.987-2.373-.253-.627-.52-.533-.72-.547h-.627c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.24 3.413 5.44 4.787.76.333 1.36.533 1.813.68.76.24 1.453.213 2 .133.613-.093 1.88-.773 2.147-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z" fill="white"/></svg>
+        Chat
+      </a>
+    </div>
+  </header>
+
+  <section class="dot-bg bg-pink-50 relative overflow-hidden">
+    <div class="max-w-2xl mx-auto px-4 py-10 text-center relative">
+
+      <span class="absolute top-3 left-5 text-4xl opacity-25 rotate-12 select-none pointer-events-none" aria-hidden="true">🌸</span>
+      <span class="absolute top-5 right-7 text-3xl opacity-20 -rotate-12 select-none pointer-events-none" aria-hidden="true">🌺</span>
+      <span class="absolute bottom-3 left-12 text-2xl opacity-20 rotate-6 select-none pointer-events-none" aria-hidden="true">🌷</span>
+      <span class="absolute bottom-5 right-10 text-3xl opacity-20 -rotate-6 select-none pointer-events-none" aria-hidden="true">✿</span>
+
+      <p class="text-rose-dark text-[15px] font-black tracking-[0.22em] uppercase mb-2">Welcome to</p>
+      <h2 class="font-display text-4xl font-bold text-bark mb-1 leading-tight">Pahi Creation</h2>
+      <p class="text-bark-light text-lg mb-4">Handmade With Love ♡</p>
+      <p class="text-bark-light text-sm mx-auto leading-relaxed">
+        Keychains · Crochet · Bouquets · Brooches · Clips &amp; more<br>
+        Each piece crafted with care, just for you.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-2 mt-5">
+        <span class="bg-white text-rose-dark text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm border border-rose/20">🧶 Crochet</span>
+        <span class="bg-white text-emerald-700 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm border border-sage/20">💐 Bouquets</span>
+        <span class="bg-white text-purple-700 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm border border-lavender/30">🪡 Embroidery</span>
+        <span class="bg-white text-amber-700 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm border border-peach/30">🎀 Accessories</span>
+      </div>
+    </div>
+  </section>
+
+
+       <!-- PRODUCTS SECTION -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+
+    <div class="text-center mb-7">
+      <h2 class="font-display text-2xl font-bold text-bark squiggle">Our Products</h2>
+    </div>
+<section class="grid grid-cols-2 md:grid-cols-3 gap-3">
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\BowClip.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Bow Clip</div>
+    <div class="font-semibold text-sm text-center">Price: ₹99 only</div>
+    <a href="https://wa.me/916001928325?text=I%20want%20to%20order%20Bow%20Clip" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\keychain.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Sunflower Keychain</div>
+    <div class="font-semibold text-sm text-center">Price: ₹119 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Sunflower%20Keychain" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\crochetgajra.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Crochet Gajra</div>
+    <div class="font-semibold text-sm text-center">Price: ₹99 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Crochet%20Gajra" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\rabbykeychain.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Rabby Keychain</div>
+    <div class="font-semibold text-sm text-center">Price: ₹99 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Rabby%20Keychain" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\Crochettulip.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Crochet Tulip</div>
+    <div class="font-semibold text-sm text-center">Price: ₹119 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Crochet%20Tulip" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\rosekeychain.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Rose Keychain</div>
+    <div class="font-semibold text-sm text-center">Price: ₹119 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Rose%20Keychain" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\3rosebouquet.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">3 Rose Bouquet</div>
+    <div class="font-semibold text-sm text-center">Price: ₹249 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%203%20Rose%20Bouquet" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\crochetbouquet.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Crochet Bouquet</div>
+    <div class="font-semibold text-sm text-center">Price: ₹399 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Crochet%20Bouquet" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\HoopEmbroidery.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Hoop Embroidery</div>
+    <div class="font-semibold text-sm text-center">Price: ₹369 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Hoop%20Embroidery" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\RibbonRoseBouquet.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Ribbon Rose Bouquet</div>
+    <div class="font-semibold text-sm text-center">Price: ₹249 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Ribbon%20Rose%20Bouquet" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\crochetsunflower.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Crochet Sunflower</div>
+    <div class="font-semibold text-sm text-center">Price: ₹199 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Crochet%20Sunflower" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\Embroiderybrooch.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Embroidery Brooch</div>
+    <div class="font-semibold text-sm text-center">Price: ₹99 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Embroidery%20Brooch" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\crochetrosebouquet.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Crochet Rose Bouquet</div>
+    <div class="font-semibold text-sm text-center">Price: ₹169 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Crochet%20Rose%20Bouquet" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\HandEmbroideredRumal.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Hand Embroidered Rumal</div>
+    <div class="font-semibold text-sm text-center">Price: ₹79 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Hand%20Embroidered%20Rumal" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+  <div class="bg-pink-50 border border-[#000000] rounded-2xl hover:shadow-[5px_5px_8px_#000000] transition-all text-center">
+    <img src="images\handmadecrochetbrooches.jpeg" alt="product" class="rounded-2xl">
+    <div class="font-bold text-center mt-2">Handmade Crochet Brooch</div>
+    <div class="font-semibold text-sm text-center">Price: ₹99 only</div>
+    <a href="https://wa.me/916001928325?text=I%20Want%20To%20Order%20Handmade%20Crochet%20Brooch" target="_blank"><div class="inline-flex bg-[#20b558] rounded-full py-2 px-4 mb-1 font-semibold text-white">Order On WhatsApp</div></a>
+  </div>
+
+
+</section>
+    
+  </main>
+
+       <!-- QUOTE STRIP -->
+  <section class="bg-white border-t border-b border-pink-100 mt-4">
+    <div class="max-w-2xl mx-auto px-4 py-8 text-center">
+      <p class="text-bark-light text-base leading-relaxed max-w-sm mx-auto">
+        "Every piece is stitched with patience and gifted with love. Thank you for supporting handmade! 🌸"
+      </p>
+      <p class="mt-3 text-xs text-bark-light font-bold tracking-widest uppercase">- Pahi Creation</p>
+    </div>
+  </section>
+
+  <footer class="bg-bark text-white rounded-2xl">
+    <div class="max-w-2xl mx-auto px-4 py-8 text-center">
+
+      <h3 class="font-display text-xl font-bold mb-1">Pahi Creation</h3>
+      <p class="text-rose/70 text-[11px] font-bold tracking-[0.2em] uppercase m-2">Handmade With Care</p>
+
+      <!-- Big WhatsApp CTA -->
+      <a href="https://www.instagram.com/pahi_creation_" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-pink-400 hover:bg-pink-500 text-white font-bold text-sm px-7 py-3.5 rounded-full shadow-lg active:scale-95 transition-all m-4">
+        <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+    <g fill="none">
+        <path fill="#d7e0ff" fill-rule="evenodd" d="M3.431.858A2.573 2.573 0 0 0 .858 3.431v6.862a2.573 2.573 0 0 0 2.573 2.573h6.862a2.573 2.573 0 0 0 2.573-2.573V3.43A2.573 2.573 0 0 0 10.293.858zm3.431 8.554a2.55 2.55 0 1 0 0-5.1a2.55 2.55 0 0 0 0 5.1" clip-rule="evenodd"/>
+        <path fill="#fff" d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0a2.55 2.55 0 1 0-5.1 0"/>
+        <path stroke="#4147d5" stroke-linecap="round" stroke-linejoin="round" d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0a2.55 2.55 0 1 0-5.1 0"/>
+        <path stroke="#4147d5" stroke-linecap="round" stroke-linejoin="round" d="M.858 3.431A2.573 2.573 0 0 1 3.431.858h6.862a2.573 2.573 0 0 1 2.573 2.573v6.862a2.573 2.573 0 0 1-2.573 2.573H3.43a2.573 2.573 0 0 1-2.573-2.573z"/>
+        <path stroke="#4147d5" stroke-linecap="round" stroke-linejoin="round" d="M10.333 3.644a.25.25 0 1 1 0-.5m0 .5a.25.25 0 1 0 0-.5"/>
+    </g>
+</svg>
+        <span class="text-lg">@pahi_creation_</span>
+      </a>
+      <p>Made by <a href="https://chitra-portfolio-ten.vercel.app/" class="hover:text-xl hover:text-amber-700 transition-all">Chitra</a></p>
+      <a href="https://chitra-portfolio-ten.vercel.app/" target="_blank" class="inline-flex items-center bg-white rounded-2xl text-bark-light font-semibold px-4 hover:bg-bark hover:text-white border hover:border-[#000000] transition-all m-2 text-xs">visit @Chitra here</a>
+      <p class="text-white/25 text-[11px]">© 2026 Pahi Creation · All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
